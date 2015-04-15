@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %} Grzebyk {% endblock %}
+{% block navbar1 %}class="navbar-active"{% endblock %}
+
+{% block content %}
+    {% for article in articles %}
+        <div class="col-lg-12">
+            <div class="article">
+                <h3 class="articletitle">{{ article.title }}</h3>
+                <i class="date">{{ article.pub_date }}</i>
+                <p class="articlecontent">{{ article.content }}</p>
+                {% for image in article.images.all %}
+                    <a href="{{ image.image.url }}"><img src="{{ image.image_thumbnail.url }}" /></a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+    {% include "pagination.html" %}
+
+{% endblock %}
+
+
+    <!--
+    {%  for row in articles %}
+            {%  for article in row %}
+                 <div class="row">
+                 </div>
+            {% endfor %}
+    {% endfor %}
+    -->

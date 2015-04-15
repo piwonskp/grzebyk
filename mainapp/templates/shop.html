@@ -1,0 +1,21 @@
+{% extends "background.html" %}
+{% block title %} Grzebyk - sprzedaż{% endblock %}
+{% block navbar3 %}class="navbar-active"{% endblock %}
+
+{% block background %}
+    <div class="row">
+        <div class="col-lg-12">
+            {% for product in products %}
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="article">
+                        <a href="{{ product.productimage.image.url }}"><img src="{{ product.productimage.image_thumbnail.url }}" /></a>
+                        <h4>{{ product.name }}</h4>
+                        {{ product.price }} zł
+                        {{ product.description }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% include "pagination.html" %}
+{% endblock %}

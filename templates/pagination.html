@@ -1,0 +1,33 @@
+<div class="row text-center">
+    <div class="btn-toolbar" role="toolbar">
+        {% if page_obj.has_previous %}
+            <div class="btn-group" role="group">
+                <a class="btn btn-default" href="?page={{ page_obj.previous_page_number }}">poprzednia</a>
+            </div>
+        {% endif %}
+        <div class="btn-group" role="group">
+            {% for i in step_links %}
+                {% if i != '...' %}
+                        {%  if i == page_obj.number %}
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-default" disabled> {{ i }}</button>
+                            </div>
+                        {% else %}
+                            <a class="btn btn-default" href="?page={{ i }}">{{ i }}</a>
+                        {% endif %}
+                {% else %}
+                    </div>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-default" disabled>{{ i }}</button>
+                    </div>
+                    <div class="btn-group" role="group">
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if page_obj.has_next %}
+            <div class="btn-group" role="group">
+                <a class="btn btn-default" href="?page={{ page_obj.next_page_number }}">następna</a>
+            </div>
+        {% endif %}
+    </div>
+</div>
