@@ -1,9 +1,8 @@
 
-
 from mainapp.models import Article
-from mainapp.views.MyListView import MyListView
+from mainapp.views.my_list_view import MyListView
 
-class Index(MyListView):
+class IndexView(MyListView):
     template_name = 'index.html'
     context_object_name = 'articles'
     model = Article

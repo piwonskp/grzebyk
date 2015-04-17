@@ -8,10 +8,12 @@
             {% for product in products %}
                 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="article">
-                        <a href="{{ product.productimage.image.url }}"><img src="{{ product.productimage.image_thumbnail.url }}" /></a>
+                        <span class="productimage">
+                            <a href="{{ product.productimage.image.url }}"><img src="{{ product.productimage.image_thumbnail.url }}" /></a>
+                        </span>
                         <h4>{{ product.name }}</h4>
-                        {{ product.price }} zł
-                        {{ product.description }}
+                        <p class="productdescription">{{ product.description }}</p>
+                        <b class="productprice"> {{ product.price }} zł </b>
                     </div>
                 </div>
             {% endfor %}
